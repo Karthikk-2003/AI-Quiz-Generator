@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI Quiz Generator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+        background-color: #f8f8f8;
+      }
+      h1 {
+        color: #333;
+      }
+      textarea {
+        width: 100%;
+        height: 120px;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      pre {
+        background: #eee;
+        padding: 20px;
+        white-space: pre-wrap;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🧠 AI Quiz Generator</h1>
+    <label for="topic">Enter your topic or content:</label><br />
+    <textarea id="topic" placeholder="e.g., Python Basics"></textarea><br />
+    <button onclick="generateQuiz()">Generate Quiz</button>
+
+    <h2>📋 Generated Quiz:</h2>
+    <pre id="quiz-output">Your quiz will appear here...</pre>
+
+    <script>
+      async function generateQuiz() {
+        const topic = document.getElementById("topic").value;
+
+        const response = await fetch("http://127.0.0.1:7860/generate_quiz", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ topic })
+        });
+
+        const result = await response.json();
+        document.getElementById("quiz-output").textContent = result.quiz;
+      }
+    </script>
+  </body>
+</html>

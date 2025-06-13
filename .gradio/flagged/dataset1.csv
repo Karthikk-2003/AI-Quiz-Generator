@@ -1,0 +1,30 @@
+Enter Topic,Generated Quiz,timestamp
+Machine Learning," Q1: What is the primary goal of machine learning?
+      A: To manually program algorithms for the computer to solve a problem
+      B: To automatically learn patterns and make decisions using data without being explicitly programmed
+      C: To create a model that can generate new, original data
+      D: To test existing models for accuracy and efficiency
+
+   Q2: Which machine learning algorithm is best suited for solving linear relationships between two variables?
+      A: Decision Tree
+      B: Neural Network
+      C: Linear Regression
+      D: Support Vector Machines
+
+   Q3: What does overfitting refer to in machine learning?
+      A: When a model learns the noise in the data as well, leading to poor generalization
+      B: When a model is too simple and underfits the data
+      C: When a model is too complex and captures the underlying structure of the data too closely
+      D: When a model fails to converge during training
+
+   Q4: What type of machine learning algorithm uses unsupervised learning, clustering similar instances together based on their features?
+      A: Decision Tree
+      B: Neural Network
+      C: Linear Regression
+      D: K-means Clustering
+
+   Q5: Which of the following is an example of reinforcement learning, where an agent learns to make decisions by taking actions in an environment to maximize a reward?
+      A: Supervised learning
+      B: Unsupervised learning
+      C: Semi-supervised learning
+      D: Reinforcement learning",2025-06-11 10:23:12.154436
