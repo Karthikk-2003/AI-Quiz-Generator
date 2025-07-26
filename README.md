@@ -1,35 +1,44 @@
 # AI Quiz Generator (Offline)
 
-This project is an offline AI-powered quiz generator application that leverages local Large Language Models (LLMs) using Ollama. The user can input a topic and generate multiple-choice quizzes, take the quiz interactively, and download it as a PDF. The application runs fully offline after initial setup.
+This is an AI-powered quiz generator app built in Python with a clean GUI using Gradio. It allows users to input any topic and generate multiple-choice quizzes using **local large language models (LLMs)** via **Ollama**. Users can take quizzes interactively, get automatic evaluation with scores, and export the quiz as a styled PDF.
 
-## Features
+> ⚡ Fully offline, no API keys, no internet needed once models are downloaded.
 
-- Generate topic-based quizzes using local LLMs (Mistral)
-- Interactive quiz-taking interface
-- Download quiz content as a structured PDF
-- Clean user interface built with Gradio
-- Runs entirely offline (once models are downloaded)
+---
 
-## Technologies Used
+## ✨ Features
 
-- Python 3.10+
-- Ollama (Local LLM management)
-- Mistral model (via Ollama)
-- Gradio (Frontend UI)
-- ReportLab (PDF export)
-- Git and GitHub (Version Control)
+* ✅ Generate quizzes using local LLMs (e.g., Mistral, Gemma)
+* ✅ Choose between multiple supported models via dropdown
+* ✅ Fully interactive quiz-taking interface with scoring
+* ✅ Export quizzes to PDF (includes selected answers and correct answers)
+* ✅ Clean UI built with Gradio
+* ✅ Modular Python code structure
+* ✅ Works fully offline after initial setup
 
-## How to Set Up and Run the Project
+---
+
+## 🛠️ Tech Stack
+
+* **Python 3.10+**
+* **Ollama** – For managing and running local LLMs (Mistral, Gemma, etc.)
+* **Gradio** – For building the interactive UI
+* **ReportLab** – For exporting styled PDF files
+* **Git + GitHub** – For version control and collaboration
+
+---
+
+## 🚀 How to Run the Project
 
 ### 1. Prerequisites
 
-Ensure the following are installed on your system:
+Install the following tools:
 
-- [Python 3.10 or 3.11](https://www.python.org/downloads/)
-- [Git](https://git-scm.com/downloads)
-- [Ollama](https://ollama.com) (for running local LLMs like Mistral)
+* [Python 3.10+](https://www.python.org/downloads/)
+* [Git](https://git-scm.com/downloads)
+* [Ollama](https://ollama.com) – required to run local models like Mistral or Gemma
 
-> **Note:** Avoid Python 3.13 as some packages may have compatibility issues.
+> ⚠️ Do **not** use Python 3.13 – some libraries may not be compatible.
 
 ---
 
@@ -39,67 +48,126 @@ Ensure the following are installed on your system:
 git clone https://github.com/Karthikk-2003/AI-Quiz-Generator.git
 cd AI-Quiz-Generator
 ```
+
+---
+
 ### 3. Set Up Virtual Environment
-Create a virtual environment:
+
 ```bash
 python -m venv venv
 ```
-###Activate the environment:
 
-On Windows:
-```bash
-.\venv\Scripts\activate
-```
+Activate it:
 
-On macOS/Linux:
-```bash
-source venv/bin/activate
-```
+* On **Windows**:
+
+  ```bash
+  .\venv\Scripts\activate
+  ```
+* On **macOS/Linux**:
+
+  ```bash
+  source venv/bin/activate
+  ```
+
+---
+
 ### 4. Install Python Dependencies
-If requirements.txt is available:
+
+If a `requirements.txt` is provided:
+
 ```bash
 pip install -r requirements.txt
 ```
+
 Or install manually:
+
 ```bash
 pip install gradio requests reportlab
 ```
-### 5. Download the Mistral Model with Ollama
-Make sure Ollama is installed and running, then run:
+
+---
+
+### 5. Download a Local Model with Ollama
+
+Choose any supported model:
+
 ```bash
 ollama pull mistral
+ollama pull gemma:2b-instruct
 ```
-This will download the Mistral model locally.
 
-### Run the Mistral Model Manually
-open a new terminal and run this command
+You can run either:
+
 ```bash
 ollama run mistral
 ```
-After running the above command, wait for the Ollama model to initialize. Once it's ready, you will see a prompt in the terminal to enter your input.
+
+or
+
+```bash
+ollama run gemma:2b-instruct
+```
+
+Wait for the model to initialize and be ready to receive input.
+
+---
 
 ### 6. Run the Application
-Start the application with:
+
+In your project folder, run:
+
 ```bash
 python app_ui.py
 ```
-Once running, open your browser and go to:
 
+Open your browser and visit:
+
+```
 http://127.0.0.1:7860
+```
+
+You can now:
+
+* Enter a topic
+* Choose a model
+* Generate and take the quiz
+* Export the results as PDF
+
+---
 
 ### 7. Stop the Application
-To stop the app:
 
-Press Ctrl + C in the terminal
+To stop the Gradio app:
 
-To stop the Ollama model:
+```
+Ctrl + C
+```
+
+To stop the LLM:
+
 ```bash
 ollama stop
 ```
-### Notes:
-This project is fully offline once the model is downloaded.
 
-No API keys or external calls are used.
+---
 
-Ideal for educational use, demonstrations, or secure offline systems.
+## 📆 Project Structure
 
+```
+├── app_ui.py           # Main GUI application
+├── quiz_logic.py       # Prompt building and model calling logic
+├── quiz_generator.py   # Quiz generation flow (retry, scoring)
+├── pdf_exporter.py     # PDF exporting logic
+├── assets/             # Images or media files (if needed)
+```
+
+---
+
+## ✅ Notes
+
+* No OpenAI or paid API needed.
+* No internet required after models are downloaded.
+* Perfect for offline, educational, or privacy-focused use cases.
+
+---
